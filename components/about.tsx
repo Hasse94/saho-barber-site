@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Award, Star, Users, Instagram, Scissors, Clock } from "lucide-react"
+import { Award, Star, Users, Instagram, Scissors, MapPin, Quote } from "lucide-react"
 
 const highlights = [
   { icon: Award, label: "Medlem i Frisörföretagarna" },
@@ -10,11 +10,10 @@ const highlights = [
   { icon: Instagram, label: "2 400+ följare på Instagram" },
 ]
 
-const stats = [
-  { value: "25+", label: "Års erfarenhet", icon: Clock },
-  { value: "10k+", label: "Nöjda kunder", icon: Users },
-  { value: "2", label: "Salonger", icon: Scissors },
-  { value: "5.0", label: "Snittbetyg", icon: Star },
+const quickStats = [
+  { value: "25+", label: "Års erfarenhet" },
+  { value: "10k+", label: "Nöjda kunder" },
+  { value: "2", label: "Salonger" },
 ]
 
 export function About() {
@@ -25,146 +24,189 @@ export function About() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
-      },
-      { threshold: 0.15 }
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true) },
+      { threshold: 0.1 }
     )
     if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section id="om-oss" ref={sectionRef} className="py-24 md:py-32 bg-card relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/[0.04] to-transparent pointer-events-none" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
+    <section id="om-oss" ref={sectionRef} className="py-24 md:py-36 bg-card relative overflow-hidden">
+      {/* Background accents */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+      <div className="absolute -top-60 right-0 w-[500px] h-[500px] bg-primary/[0.025] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/[0.02] rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
-        {/* Section label + heading */}
+        {/* Section label */}
         <div
-          className={`mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`flex items-center gap-3 mb-16 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}
         >
-          <span className="text-primary text-[0.72rem] tracking-[0.2em] uppercase font-semibold">
-            Om Salong Saho
-          </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mt-3 leading-tight">
-            Mer än bara en klippning
-          </h2>
+          <div className="h-px w-8 bg-primary flex-shrink-0" />
+          <span className="text-primary text-[0.72rem] tracking-[0.25em] uppercase font-semibold">Om Salong Saho</span>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-[1fr_1.25fr] gap-14 xl:gap-24 items-start">
 
-          {/* LEFT COLUMN */}
-          <div className={`transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
+          {/* ── LEFT: Image + floating stats ── */}
+          <div
+            className={`transition-all duration-700 delay-100 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            }`}
+          >
+            <div className="relative">
+              {/* Decorative offset frame */}
+              <div className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl border border-primary/20 rounded-2xl" />
 
-            {/* Image with fallback visual */}
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/5] mb-8 bg-[#0d0d0d]">
-              {!imageError ? (
-                <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-10%20at%2013.07.17111-mVAeTVo0p1h4cm18VIHNwj2YGiyasL.jpeg"
-                  alt="Saho Salong teamet"
-                  className={`w-full h-full object-cover transition-all duration-700 ${imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
-                  onLoad={() => setImageLoaded(true)}
-                  onError={() => setImageError(true)}
-                />
-              ) : null}
+              {/* Main image */}
+              <div className="relative rounded-2xl overflow-hidden aspect-[3/4] bg-[#0d0d0d]">
+                {!imageError && (
+                  <img
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-10%20at%2013.07.17111-mVAeTVo0p1h4cm18VIHNwj2YGiyasL.jpeg"
+                    alt="Saho Salong team"
+                    className={`w-full h-full object-cover transition-all duration-700 ${
+                      imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105"
+                    }`}
+                    onLoad={() => setImageLoaded(true)}
+                    onError={() => setImageError(true)}
+                  />
+                )}
 
-              {/* Decorative fallback / overlay visible when image hasn't loaded */}
-              {(!imageLoaded || imageError) && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                  <div className="w-20 h-20 rounded-full border border-primary/20 flex items-center justify-center">
-                    <Scissors className="w-8 h-8 text-primary/40" />
+                {/* Fallback when no image */}
+                {(imageError || !imageLoaded) && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                    <div className="w-16 h-16 rounded-full border border-primary/20 flex items-center justify-center">
+                      <Scissors className="w-7 h-7 text-primary/30" />
+                    </div>
+                    <span className="font-serif text-xl text-primary/20 tracking-widest">SAHO</span>
                   </div>
-                  <span className="font-serif text-2xl text-primary/30 tracking-widest">SAHO</span>
-                </div>
-              )}
+                )}
 
-              {/* Bottom gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#111]/80 via-transparent to-transparent" />
+                {/* Bottom gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
 
-              {/* Floating label inside image */}
-              <div className="absolute bottom-5 left-5 right-5">
-                <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" style={{ boxShadow: "0 0 6px rgba(200,168,75,0.8)" }} />
-                  <span className="text-xs text-white/80 tracking-widest uppercase font-medium">Sedan 1999</span>
+                {/* Year stamp at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span
+                      className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
+                      style={{ boxShadow: "0 0 6px rgba(200,168,75,0.8)" }}
+                    />
+                    <span className="text-white/50 text-[0.65rem] tracking-[0.2em] uppercase">Grundad</span>
+                  </div>
+                  <div className="font-serif text-4xl font-bold text-white leading-none">1999</div>
                 </div>
               </div>
 
-              {/* Decorative frame */}
-              <div className="absolute -inset-3 border border-primary/10 rounded-3xl -z-10" />
+              {/* Floating rating badge — top right */}
+              <div className="absolute -top-5 -right-5 bg-background border border-border rounded-2xl px-4 py-3 shadow-2xl shadow-black/60">
+                <div className="flex gap-0.5 mb-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-3 h-3 text-primary fill-primary" />
+                  ))}
+                </div>
+                <div className="font-serif text-2xl font-bold text-primary leading-none">5.0</div>
+                <div className="text-[0.62rem] text-muted-foreground mt-0.5 tracking-wide">Barberhead</div>
+              </div>
             </div>
 
-            {/* Stats grid below image */}
-            <div className="grid grid-cols-2 gap-3">
-              {stats.map((stat, i) => (
+            {/* Stats row */}
+            <div className="grid grid-cols-3 gap-3 mt-8">
+              {quickStats.map((stat, i) => (
                 <div
                   key={i}
-                  className={`bg-background border border-white/[0.06] rounded-xl p-4 transition-all duration-500 hover:border-primary/30 ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  className={`bg-background border border-white/[0.06] rounded-xl p-4 text-center hover:border-primary/30 transition-all duration-300 ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                   }`}
-                  style={{ transitionDelay: `${300 + i * 80}ms` }}
+                  style={{ transitionDelay: `${380 + i * 80}ms` }}
                 >
-                  <stat.icon className="w-4 h-4 text-primary mb-2 opacity-80" />
                   <div className="font-serif text-2xl font-bold text-primary leading-none">{stat.value}</div>
-                  <div className="text-xs text-muted-foreground mt-1.5">{stat.label}</div>
+                  <div className="text-[0.68rem] text-muted-foreground mt-1.5 tracking-wide leading-tight">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* RIGHT COLUMN */}
-          <div className={`transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
+          {/* ── RIGHT: Content ── */}
+          <div
+            className={`transition-all duration-700 delay-200 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+            }`}
+          >
+            {/* Headline */}
+            <h2 className="font-serif text-5xl md:text-6xl font-bold text-foreground leading-[1.05] mb-8">
+              Mer än<br />
+              <span className="text-primary">en klippning.</span>
+            </h2>
 
-            {/* Story text */}
-            <div className="space-y-5 text-muted-foreground leading-[1.85] text-[0.95rem] mb-10">
+            {/* Story */}
+            <div className="space-y-5 text-muted-foreground leading-[1.9] text-[0.95rem] mb-10">
               <p>
-                Sedan 1999 har Salong Saho byggt ett rykte som en av de bästa barberarsalongerna i södra Stockholm. Med två salonger i Haninge och Tyresö serverar vi kunder som kommer från hela Stockholmsområdet.
+                Sedan 1999 har Salong Saho byggt ett rykte som en av de bästa barberarsalongerna i södra Stockholm. Med salonger i Haninge och Tyresö välkomnar vi kunder från hela Stockholmsområdet.
               </p>
               <p>
-                Vårt team brinner för detaljer. Varje klippning, varje fade, varje skäggtrim utförs med precision och omsorg. Vi lyssnar på vad du vill ha och levererar resultat som överträffar dina förväntningar.
+                Vårt team brinner för detaljer. Varje klippning, varje fade, varje skäggtrim utförs med precision och omsorg – alltid med professionella produkter och rätt teknik.
               </p>
             </div>
 
-            {/* Divider */}
-            <div className="w-12 h-px bg-primary/40 mb-10" />
+            {/* Gold divider */}
+            <div className="h-px bg-gradient-to-r from-primary/40 via-primary/20 to-transparent mb-10" />
 
-            {/* Highlights */}
-            <div className="space-y-3 mb-10">
+            {/* Highlights grid */}
+            <div className="grid sm:grid-cols-2 gap-3 mb-10">
               {highlights.map((item, index) => (
                 <div
                   key={index}
-                  className={`flex items-center gap-4 p-4 rounded-xl bg-background border border-white/[0.05] hover:border-primary/25 transition-all duration-300 group ${
-                    isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
+                  className={`flex items-center gap-3 p-4 rounded-xl bg-background border border-white/[0.05] hover:border-primary/25 transition-all duration-300 group ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
-                  style={{ transitionDelay: `${400 + index * 80}ms` }}
+                  style={{ transitionDelay: `${480 + index * 70}ms` }}
                 >
-                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                    <item.icon className="w-4 h-4 text-primary" />
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <item.icon className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <span className="text-sm text-foreground">{item.label}</span>
-                  <span className="ml-auto text-primary/40 group-hover:text-primary transition-colors text-xs">→</span>
+                  <span className="text-sm text-foreground/80">{item.label}</span>
                 </div>
               ))}
             </div>
 
-            {/* Quote pull */}
-            <div className="relative pl-5 border-l-2 border-primary/40">
-              <p className="font-serif italic text-[1.05rem] text-foreground/70 leading-relaxed">
-                "Vi lägger ner oerhört mycket tid på detaljer – det är vad som skiljer oss från alla andra."
+            {/* Quote card */}
+            <div
+              className={`relative bg-background rounded-2xl p-6 border border-white/[0.06] transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+              style={{ transitionDelay: "750ms" }}
+            >
+              <Quote className="w-8 h-8 text-primary/20 mb-3" />
+              <p className="font-serif italic text-[1.05rem] text-foreground/75 leading-relaxed">
+                Vi lägger ner oerhört mycket tid på detaljer – det är vad som skiljer oss från alla andra.
               </p>
-              <span className="block mt-3 text-xs text-muted-foreground tracking-wide">— Kund via Reco.se</span>
+              <div className="flex items-center gap-2 mt-4">
+                <div className="h-px w-6 bg-primary/50" />
+                <span className="text-xs text-muted-foreground tracking-wide">Kund via Reco.se</span>
+              </div>
             </div>
 
             {/* CTA */}
-            <div className="mt-10">
+            <div
+              className={`mt-8 transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+              style={{ transitionDelay: "850ms" }}
+            >
               <a
                 href="#salonger"
-                className="inline-flex items-center gap-2 text-primary hover:text-foreground transition-colors font-semibold group text-sm tracking-wide"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm tracking-wide hover:bg-primary/90 transition-all duration-200 hover:shadow-[0_6px_24px_rgba(200,168,75,0.35)]"
               >
-                <span>Besök oss</span>
-                <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                <MapPin className="w-4 h-4" />
+                Hitta till oss
               </a>
             </div>
           </div>

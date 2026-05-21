@@ -14,13 +14,13 @@ const services = [
     icon: Sparkles,
     title: "Fade & Taper",
     description: "Skarpa, rena fades – från skin fade till taper. Exakt precision med maskin och sax.",
-    price: "från 400 kr",
+    price: "från 350 kr",
   },
   {
     icon: User,
     title: "Skäggvård",
     description: "Professionell skäggtrimning och formning. Vi hjälper dig hitta den perfekta stilen för ditt skägg.",
-    price: "från 200 kr",
+    price: "från 250 kr",
   },
   {
     icon: Droplets,
@@ -38,7 +38,7 @@ const services = [
     icon: Baby,
     title: "Barnklippning",
     description: "Trygga och professionella klippningar för de yngsta. Barnvänlig atmosfär med toppresultat.",
-    price: "från 250 kr",
+    price: "från 280 kr",
   },
 ]
 
