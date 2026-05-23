@@ -6,9 +6,10 @@ import Image from "next/image"
 
 const navLinks = [
   { href: "#tjanster", label: "Tjänster" },
-  { href: "#om-oss", label: "Om oss" },
+  { href: "#prislista", label: "Prislista" },
+  { href: "#om-oss", label: "Om Oss" },
   { href: "#galleri", label: "Galleri" },
-  { href: "#salonger", label: "Våra salonger" },
+  { href: "#salonger", label: "Kontakt" },
 ]
 
 export function Navigation() {
@@ -49,7 +50,6 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
           <div className="flex items-center justify-between h-[72px]">
 
-            {/* Logo — medallion image */}
             <a href="#" className="flex items-center gap-3 group" aria-label="Salong Saho – hem">
               <div className="relative w-10 h-10 rounded-full overflow-hidden border border-primary/30 group-hover:border-primary/70 transition-colors duration-300 flex-shrink-0"
                 style={{ boxShadow: "0 0 12px rgba(200,168,75,0.15)" }}>
@@ -62,12 +62,11 @@ export function Navigation() {
                 />
               </div>
               <span className="font-serif text-[1.2rem] font-bold tracking-tight">
-                <span className="text-foreground">Salong</span>
+                <span className="text-foreground">SALONG</span>
                 <span className="text-primary ml-[0.2em]">SAHO</span>
               </span>
             </a>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-7">
               {navLinks.map((link) => {
                 const id = link.href.replace("#", "")
@@ -97,7 +96,7 @@ export function Navigation() {
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-[0.8rem] font-semibold tracking-wide transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_24px_rgba(200,168,75,0.35)] active:scale-95"
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span>08-777 68 00</span>
+                <span>Ring &amp; Boka</span>
               </a>
             </div>
 
@@ -123,7 +122,6 @@ export function Navigation() {
           <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
         </div>
         <div className="flex flex-col items-center justify-center h-full gap-9 relative z-10">
-          {/* Logo in mobile menu */}
           <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-primary/40 mb-2">
             <Image
               src="/saho-logo.jpeg"

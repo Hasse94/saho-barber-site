@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Phone } from "lucide-react"
+import { Phone, ChevronRight } from "lucide-react"
 
 export function CTA() {
   const [isVisible, setIsVisible] = useState(false)
@@ -25,7 +25,6 @@ export function CTA() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
       </div>
 
-      {/* Thin decorative lines */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
 
@@ -45,9 +44,9 @@ export function CTA() {
             Ring oss idag och boka din tid. Drop-in välkomnas också!
           </p>
 
-          {/* Phone CTA */}
+          {/* CTA Buttons */}
           <div
-            className={`transition-all duration-700 delay-200 ${
+            className={`flex flex-wrap items-center justify-center gap-4 transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -55,14 +54,21 @@ export function CTA() {
               href="tel:087776800"
               className="group relative inline-flex items-center gap-4 bg-primary text-primary-foreground px-10 py-5 rounded-full font-semibold text-lg tracking-wide transition-all duration-300 hover:brightness-110 hover:shadow-[0_8px_48px_rgba(200,168,75,0.4)] hover:-translate-y-0.5 active:scale-95 overflow-hidden"
             >
-              {/* Shine sweep */}
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-600 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
               <div className="relative flex items-center gap-4">
                 <div className="w-9 h-9 rounded-full bg-black/15 flex items-center justify-center">
                   <Phone className="w-4 h-4" />
                 </div>
-                <span>08-777 68 00</span>
+                <span>Ring 08-777 68 00</span>
               </div>
+            </a>
+
+            <a
+              href="#prislista"
+              className="inline-flex items-center gap-2 border border-primary/30 text-primary px-8 py-5 rounded-full font-semibold text-base tracking-wide transition-all duration-300 hover:bg-primary/10 hover:border-primary/60 hover:-translate-y-0.5 active:scale-95"
+            >
+              <span>Se Prislista</span>
+              <ChevronRight className="w-4 h-4" />
             </a>
           </div>
 

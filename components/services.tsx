@@ -1,41 +1,41 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Scissors, Sparkles, User, Droplets, Baby, Flame, Phone } from "lucide-react"
+import { Phone } from "lucide-react"
 
 const services = [
   {
-    icon: Scissors,
+    image: "/herrklippning.jpg.jpeg",
     title: "Herrklippning",
     description: "Klassisk eller modern klippning anpassad efter ditt ansiktes form och stil. Vi tar oss tid för varje kund.",
     price: "från 350 kr",
   },
   {
-    icon: Sparkles,
+    image: "/fade-taper.jpg.jpeg",
     title: "Fade & Taper",
     description: "Skarpa, rena fades – från skin fade till taper. Exakt precision med maskin och sax.",
     price: "från 350 kr",
   },
   {
-    icon: User,
+    image: "/skaggvard.jpg.jpeg",
     title: "Skäggvård",
     description: "Professionell skäggtrimning och formning. Vi hjälper dig hitta den perfekta stilen för ditt skägg.",
     price: "från 250 kr",
   },
   {
-    icon: Droplets,
+    image: "/rakning.jpg.jpeg",
     title: "Rakning med Rakblad",
     description: "Traditionell rakning med varmt handduk och rakblad. En upplevelse utöver det vanliga.",
     price: "från 250 kr",
   },
   {
-    icon: Flame,
+    image: "/varm-handduk.jpg.jpeg",
     title: "Varm Handduk & Ansiktsvård",
     description: "Avkopplande behandling med varma och kalla handdukar, black mask och vaxning.",
     price: "från 150 kr",
   },
   {
-    icon: Baby,
+    image: "/barnklippning.jpg.jpeg",
     title: "Barnklippning",
     description: "Trygga och professionella klippningar för de yngsta. Barnvänlig atmosfär med toppresultat.",
     price: "från 280 kr",
@@ -56,9 +56,8 @@ export function Services() {
           }
         })
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     )
-
     const cards = sectionRef.current?.querySelectorAll("[data-index]")
     cards?.forEach((card) => observer.observe(card))
     return () => observer.disconnect()
@@ -69,8 +68,9 @@ export function Services() {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        {/* Section Header */}
-        <div className="text-center mb-16">
+
+        {/* Header */}
+        <div className="text-center mb-14">
           <span className="text-primary text-[0.72rem] tracking-[0.2em] uppercase font-semibold">
             Våra Tjänster
           </span>
@@ -82,41 +82,42 @@ export function Services() {
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Photo Cards Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, index) => (
             <div
               key={index}
               data-index={index}
-              className={`group relative bg-card border border-border rounded-2xl p-7 transition-all duration-500 hover:border-primary/40 hover:shadow-[0_4px_32px_rgba(200,168,75,0.08)] hover:-translate-y-0.5 ${
+              className={`group relative bg-card border border-border rounded-2xl overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-[0_8px_40px_rgba(200,168,75,0.12)] hover:-translate-y-1 ${
                 visibleCards.includes(index)
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${index * 80}ms` }}
             >
-              {/* Icon */}
-              <div className="mb-5">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/18 transition-colors duration-300">
-                  <service.icon className="w-5.5 h-5.5 text-primary" />
-                </div>
+              {/* Photo */}
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+
               </div>
 
               {/* Content */}
-              <h3 className="font-serif text-[1.1rem] font-semibold text-foreground mb-2.5 group-hover:text-primary transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                {service.description}
-              </p>
-
-              {/* Price */}
-              <div className="text-primary font-semibold text-sm tracking-wide">
-                {service.price}
+              <div className="p-5">
+                <h3 className="font-serif text-[1.1rem] font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {service.description}
+                </p>
               </div>
 
-              {/* Bottom accent line */}
-              <div className="absolute bottom-0 left-7 right-7 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+              {/* Bottom accent */}
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
             </div>
           ))}
         </div>

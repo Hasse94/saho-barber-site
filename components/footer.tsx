@@ -1,12 +1,13 @@
 "use client"
 
-import { Instagram, Phone, MapPin } from "lucide-react"
+import { Instagram, Phone, MapPin, Facebook } from "lucide-react"
 
 const quickLinks = [
   { href: "#tjanster", label: "Tjänster" },
-  { href: "#om-oss", label: "Om oss" },
+  { href: "#prislista", label: "Prislista" },
+  { href: "#om-oss", label: "Om Oss" },
   { href: "#galleri", label: "Galleri" },
-  { href: "#salonger", label: "Våra salonger" },
+  { href: "#salonger", label: "Kontakt" },
 ]
 
 export function Footer() {
@@ -21,22 +22,33 @@ export function Footer() {
           <div className="lg:col-span-1">
             <a href="#" className="inline-block mb-4">
               <span className="font-serif text-[1.25rem] font-bold tracking-tight">
-                <span className="text-foreground">Salong</span>
+                <span className="text-foreground">SALONG</span>
                 <span className="text-primary ml-[0.2em]">SAHO</span>
               </span>
             </a>
             <p className="text-muted-foreground text-sm leading-relaxed mb-5 max-w-[220px]">
-              Premium barberare i södra Stockholm sedan 1999. Klassiskt hantverk möter modern stil.
+              Professionell frisör och barberare i Tyresö och Haninge. Kvalitet och stil sedan 1999.
             </p>
-            <a
-              href="https://instagram.com/salong_saho"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-white/5 border border-white/8 inline-flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-4 h-4" />
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.facebook.com/salongsaho/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/8 inline-flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a
+                href="https://instagram.com/salong_saho"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/8 inline-flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -96,12 +108,20 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="py-5 border-t border-white/[0.05] flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground/60">
-            © {currentYear} Salong Saho. Alla rättigheter förbehållna.
+            © {currentYear} Salong Saho AB. Alla rättigheter förbehållna.
           </p>
-          <p className="text-xs text-muted-foreground/60 inline-flex items-center gap-1.5">
-            <Phone className="w-3 h-3" />
-            Bokning via telefon
-          </p>
+          <div className="flex items-center gap-4">
+            <a href="#" className="text-xs text-muted-foreground/50 hover:text-primary transition-colors">
+              Integritetspolicy
+            </a>
+            <a
+              href="tel:087776800"
+              className="text-xs text-muted-foreground/60 inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+            >
+              <Phone className="w-3 h-3" />
+              Boka tid
+            </a>
+          </div>
         </div>
       </div>
     </footer>
