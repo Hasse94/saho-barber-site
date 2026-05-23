@@ -129,7 +129,7 @@ export function Hero() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4">
             {stats.map((stat, i) => (
-              <div key={i} className={`text-center py-5 ${i < stats.length - 1 ? "border-r border-white/[0.06]" : ""}`}>
+              <div key={i} className={`text-center py-5 border-white/[0.06] ${i < stats.length - 1 ? (i % 2 === 0 ? "border-r" : "md:border-r") : ""} ${i < 2 ? "border-b md:border-b-0" : ""}`}>
                 <div className="text-2xl font-serif font-bold text-primary leading-none">{stat.number}</div>
                 <div className="text-[0.7rem] text-white/45 mt-1.5 tracking-wide">{stat.label}</div>
               </div>
