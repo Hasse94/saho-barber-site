@@ -119,7 +119,8 @@ export function Prislista() {
                     <span className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-200">
                       {item.service}
                     </span>
-                    <span className="font-bold text-primary text-sm tabular-nums ml-4 flex-shrink-0">
+                    <span className="font-bold text-primary text-sm tabular-nums ml-4 flex-shrink-0 flex items-baseline gap-1">
+                      <span className="text-primary font-semibold text-sm mr-1">fr</span>
                       {item.price}
                     </span>
                   </div>

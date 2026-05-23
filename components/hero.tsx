@@ -117,7 +117,7 @@ export function Hero() {
               {prices.map((p, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-3 py-2 border-b border-white/[0.06] last:border-b-0"
+                  className="flex items-center gap-2 py-1.5 border-b border-white/[0.06] last:border-b-0"
                   style={{
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible ? "translateY(0)" : "translateY(8px)",
@@ -126,7 +126,10 @@ export function Hero() {
                 >
                   <span className="w-1 h-1 rounded-full bg-primary/60 flex-shrink-0" />
                   <span className="text-white/60 text-sm flex-1">{p.service}</span>
-                  <span className="text-primary font-semibold text-sm tabular-nums">{p.price}</span>
+                  <span className="text-primary font-semibold text-sm tabular-nums flex items-baseline gap-0.5">
+                    <span className="text-primary font-semibold text-sm mr-1">fr</span>
+                    {p.price}
+                  </span>
                 </div>
               ))}
             </div>
@@ -177,6 +180,13 @@ export function Hero() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Ticker label */}
+      <div className="relative z-10 text-center py-2 border-t border-primary/[0.12]">
+        <span className="text-[0.65rem] text-white/30 tracking-[0.25em] uppercase font-medium">
+          Produkter vi samarbetar med
+        </span>
       </div>
 
       {/* Scrolling ticker */}
