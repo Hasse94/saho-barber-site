@@ -23,16 +23,18 @@ const stats = [
 // Duplicated for seamless infinite loop
 const stylingBrands = [
   "Hey Joe", "DR Jackson", "Mon Platin", "Proraso", "Slick Gorilla",
-  "Barburys", "Beardburys", "EuroStil", "Astra", "Borotalco", "The Inglorious Mariner",
+  "Barburys", "Beardburys", "EuroStil", "Astra Superior", "Borotalco",
+  "The Inglorious Mariner", "Sibel", "MicAge Barbers", "Caliber Professional", "Dorco",
   "Hey Joe", "DR Jackson", "Mon Platin", "Proraso", "Slick Gorilla",
-  "Barburys", "Beardburys", "EuroStil", "Astra", "Borotalco", "The Inglorious Mariner",
+  "Barburys", "Beardburys", "EuroStil", "Astra Superior", "Borotalco",
+  "The Inglorious Mariner", "Sibel", "MicAge Barbers", "Caliber Professional", "Dorco",
 ]
 
 const machineBrands = [
   "Andis", "Babyliss", "BabylissPRO", "JRL Professional", "WAHL",
-  "Comair", "Derby", "Jaguar", "ItalWax", "Sibel", "Caliber Pro",
+  "Comair", "Derby Razor Blades", "Jaguar", "ItalWax", "StyleCraft",
   "Andis", "Babyliss", "BabylissPRO", "JRL Professional", "WAHL",
-  "Comair", "Derby", "Jaguar", "ItalWax", "Sibel", "Caliber Pro",
+  "Comair", "Derby Razor Blades", "Jaguar", "ItalWax", "StyleCraft",
 ]
 
 export function Hero() {
@@ -96,7 +98,7 @@ export function Hero() {
                   style={{ transition: `opacity 0.4s ease ${320 + i * 55}ms, transform 0.4s ease ${320 + i * 55}ms`, opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(8px)" }}
                 >
                   <span className="w-1 h-1 rounded-full bg-primary/60 flex-shrink-0" />
-                  <span className="text-white/60 text-sm flex-1">{p.service}</span>
+                  <span className="text-white/60 text-sm w-40 flex-shrink-0">{p.service}</span>
                   <span className="flex items-baseline gap-1 text-primary font-semibold text-sm tabular-nums">
                     <span className="mr-0.5">fr</span>{p.price}
                   </span>

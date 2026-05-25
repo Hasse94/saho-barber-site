@@ -39,17 +39,17 @@ export function About() {
 
         {/* Stats bar */}
         <div
-          className={`grid grid-cols-4 gap-3 mb-12 transition-all duration-700 ${
+          className={`grid grid-cols-2 md:grid-cols-4 gap-3 mb-12 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           {stats.map((stat, i) => (
             <div
               key={i}
-              className="text-center py-5 px-4 bg-card border border-border rounded-2xl hover:border-primary/30 transition-colors"
+              className="flex flex-col items-center justify-center text-center py-5 px-3 bg-card border border-border rounded-2xl hover:border-primary/30 transition-colors"
             >
               <div className="font-serif text-2xl md:text-3xl font-bold text-primary leading-none">{stat.value}</div>
-              <div className="text-[0.68rem] text-muted-foreground mt-1.5 tracking-wide">{stat.label}</div>
+              <div className="text-[0.68rem] text-muted-foreground mt-1.5 tracking-wide leading-snug">{stat.label}</div>
             </div>
           ))}
         </div>

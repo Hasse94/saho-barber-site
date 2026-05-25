@@ -52,12 +52,12 @@ export function CTA() {
           >
             <a
               href="tel:087776800"
-              className="group relative inline-flex items-center gap-4 bg-primary text-primary-foreground px-10 py-5 rounded-full font-semibold text-lg tracking-wide transition-all duration-300 hover:brightness-110 hover:shadow-[0_8px_48px_rgba(200,168,75,0.4)] hover:-translate-y-0.5 active:scale-95 overflow-hidden"
+              className="group relative inline-flex items-center gap-3 bg-primary text-primary-foreground px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide shadow-[0_4px_20px_rgba(200,168,75,0.25)] transition-all duration-300 hover:brightness-110 hover:shadow-[0_6px_32px_rgba(200,168,75,0.4)] hover:-translate-y-0.5 active:scale-95 overflow-hidden"
             >
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-600 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-              <div className="relative flex items-center gap-4">
-                <div className="w-9 h-9 rounded-full bg-black/15 flex items-center justify-center">
-                  <Phone className="w-4 h-4" />
+              <div className="relative flex items-center gap-3">
+                <div className="w-7 h-7 rounded-full bg-black/15 flex items-center justify-center">
+                  <Phone className="w-3.5 h-3.5" />
                 </div>
                 <span>Ring 08-777 68 00</span>
               </div>
@@ -65,7 +65,7 @@ export function CTA() {
 
             <a
               href="#prislista"
-              className="inline-flex items-center gap-2 border border-primary/30 text-primary px-8 py-5 rounded-full font-semibold text-base tracking-wide transition-all duration-300 hover:bg-primary/10 hover:border-primary/60 hover:-translate-y-0.5 active:scale-95"
+              className="inline-flex items-center gap-2 border border-primary/30 text-primary px-6 py-3.5 rounded-full font-semibold text-sm tracking-wide shadow-[0_2px_12px_rgba(200,168,75,0.1)] transition-all duration-300 hover:bg-primary/10 hover:border-primary/60 hover:shadow-[0_4px_20px_rgba(200,168,75,0.2)] hover:-translate-y-0.5 active:scale-95"
             >
               <span>Se Prislista</span>
               <ChevronRight className="w-4 h-4" />
