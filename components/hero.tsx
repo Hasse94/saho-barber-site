@@ -30,11 +30,11 @@ const stylingBrands = [
   "The Inglorious Mariner", "Sibel", "MicAge Barbers", "Caliber Professional", "Dorco",
 ]
 
-const machineBrands = [
-  "Andis", "Babyliss", "BabylissPRO", "JRL Professional", "WAHL",
-  "Comair", "Derby Razor Blades", "Jaguar", "ItalWax", "StyleCraft",
-  "Andis", "Babyliss", "BabylissPRO", "JRL Professional", "WAHL",
-  "Comair", "Derby Razor Blades", "Jaguar", "ItalWax", "StyleCraft",
+const websiteUrl = [
+  "www.salongsaho.se", "www.salongsaho.se", "www.salongsaho.se", "www.salongsaho.se", "www.salongsaho.se",
+  "www.salongsaho.se", "www.salongsaho.se", "www.salongsaho.se", "www.salongsaho.se", "www.salongsaho.se",
+  "www.salongsaho.se", "www.salongsaho.se", "www.salongsaho.se", "www.salongsaho.se", "www.salongsaho.se",
+  "www.salongsaho.se", "www.salongsaho.se", "www.salongsaho.se", "www.salongsaho.se", "www.salongsaho.se",
 ]
 
 export function Hero() {
@@ -159,13 +159,13 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Machine brands — scrolls right */}
+      {/* Website URL — scrolls right */}
       <div className="relative z-10 overflow-hidden bg-primary/[0.03] border-t border-primary/[0.10] py-2">
         <div className="flex animate-ticker-reverse whitespace-nowrap">
-          {machineBrands.map((item, i) => (
+          {websiteUrl.map((item, i) => (
             <span key={i} className="inline-flex items-center gap-4 px-4">
-              <span className="text-[0.65rem] text-primary/60 tracking-[0.2em] uppercase font-medium">{item}</span>
-              <span className="text-primary/30 text-xs">◆</span>
+              <span className="text-[0.65rem] text-primary/70 tracking-[0.2em] uppercase font-semibold">{item}</span>
+              <span className="text-primary/40 text-xs">✦</span>
             </span>
           ))}
         </div>
