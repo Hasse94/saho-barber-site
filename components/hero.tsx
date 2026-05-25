@@ -90,7 +90,7 @@ export function Hero() {
             </div>
 
             {/* Price list */}
-            <div className={`mb-8 transition-all duration-700 delay-[320ms] ${visible}`}>
+            <div className={`mb-8 w-fit transition-all duration-700 delay-[320ms] ${visible}`}>
               {prices.map((p, i) => (
                 <div
                   key={i}
